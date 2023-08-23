@@ -12,10 +12,17 @@
         <span><%= @product.quantity %> in stock at </span>
         <span class="cart-subtotal_money">$<%= @product.price %></span>
       </div>
-      <div class="price">          
-        <%= button_to add_item_cart_path(product_id: @product.id), class: 'btn' , method: :post do %>
+      <div class="price sold">      
+      <% if @product.quantity.zero? %>    
+       <%= button_to add_item_cart_path(product_id: @product.id), class: 'btn' , method: :post do %>
           <%= fa_icon "shopping-cart", text: 'Add' %>
         <% end %>          
+        <button class="btn btn-sold">sold</button>
+        <% else %>
+        <%= button_to add_item_cart_path(product_id: @product.id), class: 'btn' , method: :post do %>
+          <%= fa_icon "shopping-cart", text: 'Add' %>
+        <% end %>
+        <% end %>
       </div>
     </div>
   </article>
