@@ -1,0 +1,56 @@
+.team{
+  display: flex;
+}
+.member{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1em;
+  img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 0.1em solid rgba(0, 130, 29, 0.8);
+  }
+  h3{
+    margin: 0.5em 0;
+    font-size: 1em;
+    font-weight: 700;
+  }
+  p{
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+    color: rgba(0, 130, 29, 0.7);
+  }
+}
+.header-container{
+  display:flex;
+  flex-direction: column;
+  border:5px solid black;
+  padding: 10px;
+  margin:40px 0 20px 0;
+
+  h2{
+    font-size: 1em;
+    font-weight: 700;
+    margin: 0;
+    color:green
+  }
+  p{
+    font-family: 'Courier New', Courier, monospace;
+  }
+}
+
+.team-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 40px 0;
+  padding:50px;
+  h1{
+    margin-top:5px;
+
+  }
+}
