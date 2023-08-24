@@ -1,11 +1,23 @@
+<div class ="signup-now">
 <h1>Signup!</h1>
 
 <%= form_for :user, url: '/users' do |f| %>
 
+  <div class="inp-box">
   Name: <%= f.text_field :name %>
+  </div>
+  <div class="inp-box">
   Email: <%= f.text_field :email %>
+  </div>
+  <div class="inp-box">
   Password: <%= f.password_field :password %>
+  </div>
+  <div class="inp-box conf-btn">
   Password Confirmation: <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="inp-box submit-btn">
   <%= f.submit "Submit" %>
+  </div>
 
 <% end %>
+</div>
