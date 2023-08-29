@@ -33,5 +33,36 @@ RSpec.describe User, type: :model do
       expect(@user.password.length).to be >= 6
     end
   end
+  describe '.authenticate_with_credentials' do
+    it "should authenticate with credentials" do
+      @user = User.new(
+        name: "test", email: "a@a.com",
+        password: "tested01", password_confirmation: "tested01"
+      )
+      @user.save
+      authenticated_user = User.authenticate_with_credentials("a@a.com", "tested01")
+      expect(authenticated_user).to eq(@user)
+    end
 
+    it "should authenticate with space in the credentials" do
+      @user = User.new(
+        name: "test", email: "a@a.com",
+        password: "tested01", password_confirmation: "tested01"
+      )
+      @user.save
+      authenticated_user = User.authenticate_with_credentials(" a@a.com ", "tested01")
+      expect(authenticated_user).to eq(@user)
+    end
+
+    it "should authenticate with wrong case in the credentials" do
+      @user = User.new(
+        name: "test", email: "a@a.com",
+        password: "tested01", password_confirmation: "tested01"
+      )
+      @user.save
+      authenticated_user = User.authenticate_with_credentials("A@a.com", "tested01")
+      expect(authenticated_user).to eq(@user)
+    end
+  end
 end
+

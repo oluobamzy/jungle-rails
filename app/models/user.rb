@@ -4,4 +4,10 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+ 
+  def self.authenticate_with_credentials(email, password)
+    user = find_by_email(email.strip.downcase)
+    user && user.authenticate(password)
+  end
 end
