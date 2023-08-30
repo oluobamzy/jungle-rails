@@ -23,7 +23,6 @@ CypressRails.hooks.before_server_start do
     quantity: 18,
     price: 24.99
   })
-
 end
 
 CypressRails.hooks.after_transaction_start do
@@ -38,6 +37,7 @@ CypressRails.hooks.before_server_stop do
   # Called once, at_exit
   DatabaseCleaner.clean
 end
+
 private
 
 def open_asset(file_name)
